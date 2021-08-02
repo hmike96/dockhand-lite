@@ -73,9 +73,9 @@
     "pretest": "bash ./test/setup.sh >/dev/null 2>&1",
     "test": "nyc --extension .ts mocha --forbid-only \"test/**/*.test.ts\"",
     "posttest": "eslint . --ext .ts --config .eslintrc",
-    "prepack": "rm -rf lib && tsc -b && cp src/spec/schema.json lib/spec && oclif-dev manifest && oclif-dev readme",
+    "prepack": "rm -rf lib && tsc -b && cp src/spec/schema.json lib/spec && oclif-dev manifest && oclif-dev readme && oclif-dev readme --multi --dir=docs/content/commands",
     "postpack": "rm -f oclif.manifest.json",
-    "version": "oclif-dev readme && git add README.md"
+    "version": "oclif-dev readme && git add README.md && oclif-dev readme --multi --dir=docs/content/commands && git add docs/:"
   },
   "types": "lib/index.d.ts"
 }
