@@ -14,6 +14,6 @@ services:
       - --bind=0.0.0.0
       - --buildDrafts
       - --port=${PORT:-1313}
-      - "${POLL_ARG:---poll=1s}"
+      - "${POLL_ARG:---watch}"
     ports:
       - "${PORT:-1313}:${PORT:-1313}"
