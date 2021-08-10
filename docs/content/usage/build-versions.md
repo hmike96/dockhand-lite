@@ -1,11 +1,7 @@
 ---
-layout: default
 title: Build Versions
-nav_order: 1
-parent: Documentation
+weight: 30
 ---
-
-# Build Versions
 
 Dockhand Lite alleviates the burden of having to manage what version of a service should be deployed to an environment. It accomplishes this by maintaining a `build-versions` Git repository that stores build information about each service.
 

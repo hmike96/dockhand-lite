@@ -1,11 +1,7 @@
 ---
-layout: default
-title: How it Works
-nav_order: 1
-parent: Documentation
+title: Overview
+weight: 10
 ---
-
-# How it Works
 
 Dockhand Lite relies on certain configurations specified in yaml manifest files to actually function. There are two seperate configuration files Dockhand Lite needs to function. First off there is the dockhand lite global configuration file. You can either specify the path of this file in your dhl commands or set the environment variable `DHL_GLOBAL_CONFIG`. This config file eseentially contains the data dockhand needs to connect to your git repository containing build version. To find more specific info on the dockhand-lite go to this page in the docs. The second config file dockhand needs is the dockhand lite repo configuration file. You can either specify the path of this file in your dhl commands or set the environment variable `DHL_REPO_CONFIG`. This config contains data related to the actual app you are working with such as events you want dockhand to record a build, promotion or deploy off. For more information on DHL repo config files go to this page.
 
