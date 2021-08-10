@@ -1,0 +1,5 @@
+---
+baseURL: https://lite.dockhand.dev/
+languageCode: en-us
+title: dockhand-lite
+theme: hugo-geekdocs
