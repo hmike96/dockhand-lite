@@ -10,7 +10,7 @@ weight: 20
 ### Using Docker
 
 ```bash
-alias dhl="docker run --rm -v "$(pwd):/workspace" boxboat/dockhand-lite dhl"
+dhl () { docker run --rm -v "$(pwd):/workspace" boxboat/dockhand-lite dhl "$@"; }
 dhl help
 ```
 
