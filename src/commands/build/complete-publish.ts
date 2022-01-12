@@ -7,6 +7,7 @@ import {
   eventOptionalFlag,
   tagFlags,
   versionPrefixFlag,
+  buildVersionsMessageFlag,
 } from '../../flags/Flags'
 import {parseConfigAsync} from '../../config/Config'
 import {Build} from '../../lib/build/Build'
@@ -23,6 +24,7 @@ export default class BuildCompletePublish extends Command {
     ...eventOptionalFlag,
     ...tagFlags,
     ...versionPrefixFlag,
+    ...buildVersionsMessageFlag,
   }
 
   async run() {
@@ -37,7 +39,8 @@ export default class BuildCompletePublish extends Command {
       flags.tag,
       flags.tagTip,
       flags.gitRemote,
-      flags.gitRemoteRef)
+      flags.gitRemoteRef,
+      flags.buildVersionsMessage)
     output(data, flags.outputType, flags.outputPrefix, {
       tableExcludeKeys: ['repo'],
     })

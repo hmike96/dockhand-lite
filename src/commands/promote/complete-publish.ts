@@ -8,6 +8,7 @@ import {
   promotionRequiredFlag,
   tagFlags,
   versionOptionalFlag,
+  buildVersionsMessageFlag,
 } from '../../flags/Flags'
 import {parseConfigAsync} from '../../config/Config'
 import {Promote} from '../../lib/promote/Promote'
@@ -25,6 +26,7 @@ export default class PromoteCompletePublish extends Command {
     ...promotionRequiredFlag,
     ...tagFlags,
     ...versionOptionalFlag,
+    ...buildVersionsMessageFlag,
   }
 
   async run() {
@@ -40,7 +42,8 @@ export default class PromoteCompletePublish extends Command {
       flags.gitConnectionKey,
       flags.gitConnectionPath,
       flags.tag,
-      flags.tagTip)
+      flags.tagTip,
+      flags.buildVersionsMessage)
     output(data, flags.outputType, flags.outputPrefix, {
       tableExcludeKeys: ['repo', 'promoteToRepo'],
     })

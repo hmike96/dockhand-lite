@@ -46,7 +46,7 @@ export class BuildVersions {
     return dataAccessor.dataAsync()
   }
 
-  public async saveAsync(message = 'update build versions'): Promise<boolean> {
+  public async saveAsync(message : string): Promise<boolean> {
     const dataAccessors: IDataAccessor[] = [
       ...this.artifactDataAccessorMap.values(),
       ...this.repoDataAccessorMap.values(),

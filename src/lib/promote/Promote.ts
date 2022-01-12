@@ -100,6 +100,7 @@ export class Promote {
     gitConnectionPath: string | undefined,
     tags: string[] | undefined,
     tagsTip: string[] | undefined,
+    buildVersionsMessage: string | undefined,
   ): Promise<IArtifactPromotion[]> {
     const artifactSet = new Set<string>()
     const artifactPromotions = await this.listPublishAsync(
@@ -169,8 +170,10 @@ export class Promote {
     }
 
     await Promise.all(promises)
-    if (await buildVersions.saveAsync()) {
-      await buildVersions.gitRepo.commitAndPushAsync('update build versions')
+    if (buildVersionsMessage) {
+      await buildVersions.saveAsync(buildVersionsMessage) 
+    } else {
+      await buildVersions.saveAsync('update build versions')
     }
 
     if (!this.promoteConfig.gitTagDisable && promoteToData) {

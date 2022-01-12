@@ -108,6 +108,7 @@ export class Build {
     tagsTip: string[] | undefined,
     remote: string | undefined,
     remoteRef: string | undefined,
+    buildVersionsMessage: string | undefined,
   ): Promise<IArtifact[]> {
     const artifactSet = new Set<string>()
     const artifacts = await this.listPublishAsync(
@@ -147,11 +148,13 @@ export class Build {
           artifactData.commitMap[eventKey] = artifact.version
         })())
       }
-
       await Promise.all(promises)
-      if (await buildVersions.saveAsync()) {
-        await buildVersions.gitRepo.commitAndPushAsync('update build versions')
-      }
+      
+      if (buildVersionsMessage) {
+        await buildVersions.saveAsync(buildVersionsMessage)
+      } else {
+        await buildVersions.saveAsync('update build versions')
+      } 
     }
 
     return artifacts

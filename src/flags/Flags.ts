@@ -62,6 +62,15 @@ export const gitRemoteFlags = {
   }),
 }
 
+export const buildVersionsMessageFlag = {
+  buildVersionsMessage: flags.string({
+    char: 'b',
+    name: 'buildVersionsMessage',
+    description: 'git commit message for build versions commit',
+    env: 'DHL_BUILD_VERSION_MESSAGE',
+  }),
+}
+
 export const globalFlags = {
   help: flags.help({
     char: 'h',
